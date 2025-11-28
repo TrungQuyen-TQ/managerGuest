@@ -1,0 +1,42 @@
+@import './variable.scss';
+.btn {
+    background-color: $primary-color !important;
+    color:white !important;
+    margin: 10px !important;
+    max-width: 180px;
+    padding: 8px 20px;
+}
+.btn:hover {
+    background-color: #0c4da2 !important;
+}
+
+.btnBack {
+    background-color: $primary-color !important;
+    margin: 0px 6px !important;
+}
+
+.header {
+    background-color: $primary-color !important;
+}
+
+.iconDelete {
+    color: $primary-color !important;
+}
+
+.tabFilter {
+    background-color: $primary-color;
+}
+
+.itemFilter {
+    max-width: 150px;
+    height: 35px;
+    background-color: #4b9949 !important;
+    border: 1px solid white;
+    color: white !important;
+    text-align: center;
+    border-radius: 0 !important;
+    cursor: pointer;
+}
+.activeFilter {
+    background-color: $primary-color !important;
+}

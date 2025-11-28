@@ -1,0 +1,623 @@
+{
+    "meta": {
+        "moduleKey": "accounts",
+        "title": {
+            "key": "MEC_ACCOUNT_MANAGEMENT",
+            "default": "Quản lý tài khoản"
+        }
+    },
+    "pages": {
+        "list": {
+            "title": {
+                "key": "MEC_ACCOUNT_LIST",
+                "default": "Danh sách tài khoản"
+            },
+            "button": {
+                "key": "MEC_ADD",
+                "default": "Thêm"
+            },
+            "filter": {
+                "search": {
+                    "label": {
+                        "key": "MEC_SEARCH_CONTENT",
+                        "default": "Nội dung tìm kiếm"
+                    }
+                },
+                "date": {
+                    "from": {
+                        "label": {
+                            "key": "MEC_FROM_DATE",
+                            "default": "Từ ngày"
+                        }
+                    },
+                    "to": {
+                        "label": {
+                            "key": "MEC_TO_DATE",
+                            "default": "Đến ngày"
+                        }
+                    }
+                },
+                "button": {
+                    "search": {
+                        "key": "MEC_SEARCH",
+                        "default": "Tìm kiếm"
+                    }
+                },
+                "accountTypeFilter": {
+                    "system": {
+                        "key": "MEC_ACCOUNT_TYPE_SYSTEM",
+                        "default": "Hệ thống"
+                    },
+                    "manager": {
+                        "key": "MEC_ACCOUNT_TYPE_MANAGER",
+                        "default": "Quản lý"
+                    },
+                    "employee": {
+                        "key": "MEC_ACCOUNT_TYPE_EMPLOYEE",
+                        "default": "Nhân viên"
+                    },
+                    "all": {
+                        "key": "MEC_ALL",
+                        "default": "Tất cả"
+                    }
+                }
+            },
+            "table": {
+                "columns": {
+                    "stt": {
+                        "headerName": {
+                            "key": "MEC_STT",
+                            "default": "STT"
+                        }
+                    },
+                    "avatar": {
+                        "headerName": {
+                            "key": "MEC_AVATAR",
+                            "default": "Ảnh"
+                        }
+                    },
+                    "accountCode": {
+                        "headerName": {
+                            "key": "MEC_ACCOUNT_CODE",
+                            "default": "Mã tài khoản"
+                        }
+                    },
+                    "fullname": {
+                        "headerName": {
+                            "key": "MEC_FULL_NAME",
+                            "default": "Họ và tên"
+                        }
+                    },
+                    "username": {
+                        "headerName": {
+                            "key": "MEC_USERNAME",
+                            "default": "Tên tài khoản"
+                        }
+                    },
+                    "accountGroup": {
+                        "headerName": {
+                            "key": "MEC_ACCOUNT_GROUP",
+                            "default": "Nhóm tài khoản"
+                        }
+                    },
+                    "email": {
+                        "headerName": {
+                            "key": "MEC_EMAIL",
+                            "default": "Email"
+                        }
+                    },
+                    "mobilePhone": {
+                        "headerName": {
+                            "key": "MEC_MOBILE_PHONE",
+                            "default": "Số điện thoại"
+                        }
+                    },
+                    "action": {
+                        "headerName": {
+                            "key": "MEC_ACTIONS",
+                            "default": "Thao tác"
+                        },
+                        "tooltip": {
+                            "systemAccess": {
+                                "key": "MEC_SYSTEM_ACCESS",
+                                "default": "Truy cập hệ thống"
+                            },
+                            "viewDetail": {
+                                "key": "MEC_VIEW_DETAIL",
+                                "default": "Xem chi tiết"
+                            },
+                            "edit": {
+                                "key": "MEC_EDIT",
+                                "default": "Chỉnh sửa"
+                            }
+                        }
+                    }
+                }
+            },
+            "detail": {
+                "title": {
+                    "key": "MEC_ACCOUNT_DETAIL_TITLE",
+                    "default": "Thông tin tài khoản"
+                },
+                "dialog": {
+                    "minWidth": "600px"
+                },
+                "button": {
+                    "close": {
+                        "key": "MEC_CLOSE",
+                        "default": "Đóng"
+                    }
+                }
+            },
+            "edit": {
+                "title": {
+                    "key": "MEC_ACCOUNT_EDIT_TITLE",
+                    "default": "Chỉnh sửa tài khoản"
+                },
+                "dialog": {
+                    "minWidth": "600px"
+                },
+                "button": {
+                    "save": {
+                        "key": "MEC_SAVE_CHANGES",
+                        "default": "Lưu thay đổi"
+                    },
+                    "close": {
+                        "key": "MEC_CLOSE",
+                        "default": "Đóng"
+                    }
+                }
+            },
+            "systemAccess": {
+                "title": {
+                    "key": "MEC_SYSTEM_ACCESS_TITLE",
+                    "default": "Truy cập hệ thống"
+                },
+                "dialog": {
+                    "minWidth": "500px"
+                },
+                "button": {
+                    "close": {
+                        "key": "MEC_CLOSE",
+                        "default": "Đóng"
+                    }
+                }
+            }
+        },
+        "add": {
+            "title": {
+                "key": "MEC_ACCOUNT_ADD_TITLE",
+                "default": "Thêm tài khoản"
+            },
+            "tabs": {
+                "systemAccess": {
+                    "label": {
+                        "key": "MEC_TAB_SYSTEM_ACCESS",
+                        "default": "Truy cập hệ thống"
+                    },
+                    "fields": {
+                        "lastName": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_LAST_NAME",
+                                "default": "Họ"
+                            }
+                        },
+                        "middleName": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_MIDDLE_NAME",
+                                "default": "Tên đệm"
+                            }
+                        },
+                        "firstName": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_FIRST_NAME",
+                                "default": "Tên"
+                            }
+                        },
+                        "username": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_USERNAME",
+                                "default": "Tên tài khoản"
+                            },
+                            "helper": {
+                                "duplicate": {
+                                    "key": "MLA_SYSTEM_ACCESS_USERNAME_DUPLICATE",
+                                    "default": "Username đã tồn tại, vui lòng chọn username khác"
+                                }
+                            }
+                        },
+                        "accountGroup": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_ACCOUNT_GROUP",
+                                "default": "Nhóm tài khoản"
+                            },
+                            "tooltipAdd": {
+                                "key": "MLA_SYSTEM_ACCESS_ACCOUNT_GROUP_ADD_TOOLTIP",
+                                "default": "Thêm nhóm tài khoản"
+                            },
+                            "dialogAdd": {
+                                "title": {
+                                    "key": "MLA_SYSTEM_ACCESS_ADD_GROUP_TITLE",
+                                    "default": "Thêm nhóm tài khoản"
+                                },
+                                "fieldLabel": {
+                                    "key": "MLA_SYSTEM_ACCESS_ADD_GROUP_FIELD_LABEL",
+                                    "default": "Tên nhóm"
+                                },
+                                "buttonSave": {
+                                    "key": "MLA_SYSTEM_ACCESS_ADD_GROUP_SAVE",
+                                    "default": "Lưu"
+                                },
+                                "buttonCancel": {
+                                    "key": "MLA_SYSTEM_ACCESS_ADD_GROUP_CANCEL",
+                                    "default": "Hủy"
+                                }
+                            }
+                        },
+                        "password": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_PASSWORD",
+                                "default": "Mật khẩu"
+                            },
+                            "show": {
+                                "key": "MLA_SYSTEM_ACCESS_SHOW_PASSWORD",
+                                "default": "Hiện mật khẩu"
+                            },
+                            "hide": {
+                                "key": "MLA_SYSTEM_ACCESS_HIDE_PASSWORD",
+                                "default": "Ẩn mật khẩu"
+                            }
+                        },
+                        "confirmPassword": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_CONFIRM_PASSWORD",
+                                "default": "Xác nhận mật khẩu"
+                            },
+                            "show": {
+                                "key": "MLA_SYSTEM_ACCESS_SHOW_CONFIRM_PASSWORD",
+                                "default": "Hiện mật khẩu"
+                            },
+                            "hide": {
+                                "key": "MLA_SYSTEM_ACCESS_HIDE_CONFIRM_PASSWORD",
+                                "default": "Ẩn mật khẩu"
+                            }
+                        },
+                        "status": {
+                            "label": {
+                                "key": "MLA_SYSTEM_ACCESS_STATUS",
+                                "default": "Trạng thái"
+                            },
+                            "options": {
+                                "active": {
+                                    "key": "MLA_SYSTEM_ACCESS_STATUS_ACTIVE",
+                                    "default": "Đang hoạt động"
+                                },
+                                "locked": {
+                                    "key": "MLA_SYSTEM_ACCESS_STATUS_LOCKED",
+                                    "default": "Khóa"
+                                }
+                            }
+                        }
+                    }
+                },
+                "infoBasic": {
+                    "label": {
+                        "key": "MLA_INFO_BASIC_TITLE",
+                        "default": "Thông tin cơ bản"
+                    },
+                    "sections": {
+                        "basicInfo": {
+                            "title": {
+                                "key": "MLA_INFO_BASIC_SECTION_BASIC",
+                                "default": "Thông tin cơ bản"
+                            }
+                        },
+                        "identification": {
+                            "title": {
+                                "key": "MLA_INFO_BASIC_SECTION_IDENTIFICATION",
+                                "default": "Căn cước công dân"
+                            }
+                        },
+                        "address": {
+                            "title": {
+                                "key": "MLA_INFO_BASIC_SECTION_ADDRESS",
+                                "default": "Địa chỉ"
+                            }
+                        }
+                    },
+                    "fields": {
+                        "avatar": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_AVATAR",
+                                "default": "Ảnh đại diện"
+                            },
+                            "button": {
+                                "upload": {
+                                    "key": "MLA_INFO_BASIC_UPLOAD_PHOTO",
+                                    "default": "Tải ảnh lên"
+                                }
+                            },
+                            "error": {
+                                "key": "MLA_INFO_BASIC_AVATAR_ERROR",
+                                "default": "Ảnh không hợp lệ"
+                            }
+                        },
+                        "accountCode": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_ACCOUNT_CODE",
+                                "default": "Mã tài khoản"
+                            }
+                        },
+                        "birthday": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_BIRTHDAY",
+                                "default": "Ngày sinh"
+                            }
+                        },
+                        "sex": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_SEX",
+                                "default": "Giới tính"
+                            },
+                            "options": {
+                                "male": {
+                                    "key": "MLA_INFO_BASIC_MALE",
+                                    "default": "Nam"
+                                },
+                                "female": {
+                                    "key": "MLA_INFO_BASIC_FEMALE",
+                                    "default": "Nữ"
+                                }
+                            }
+                        },
+                        "nationality": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_NATIONALITY",
+                                "default": "Quốc tịch"
+                            }
+                        },
+                        "mobilePhone": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_MOBILE_PHONE",
+                                "default": "Điện thoại di động"
+                            },
+                            "helper": {
+                                "error": {
+                                    "key": "MLA_INFO_BASIC_MOBILE_PHONE_ERROR",
+                                    "default": "Số điện thoại không hợp lệ"
+                                }
+                            }
+                        },
+                        "email": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_EMAIL",
+                                "default": "Email"
+                            },
+                            "helper": {
+                                "error": {
+                                    "key": "MLA_INFO_BASIC_EMAIL_ERROR",
+                                    "default": "Email không hợp lệ"
+                                }
+                            }
+                        },
+                        "educationLevelId": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_EDUCATION_LEVEL",
+                                "default": "Trình độ văn hóa"
+                            }
+                        },
+                        "marriedStatus": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_MARITAL_STATUS",
+                                "default": "Tình trạng hôn nhân"
+                            }
+                        },
+                        "ethnicity": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_ETHNICITY",
+                                "default": "Dân tộc"
+                            }
+                        },
+                        "religion": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_RELIGION",
+                                "default": "Tôn giáo"
+                            }
+                        },
+                        "identification": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_IDENTIFICATION",
+                                "default": "Số CCCD"
+                            }
+                        },
+                        "identificationDate": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_IDENTIFICATION_DATE",
+                                "default": "Ngày cấp"
+                            }
+                        },
+                        "identificationLocation": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_IDENTIFICATION_LOCATION",
+                                "default": "Nơi cấp"
+                            }
+                        },
+                        "domicileCityId": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_DOMICILE_CITY",
+                                "default": "Tỉnh / TP nguyên quán"
+                            }
+                        },
+                        "domicileWardId": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_DOMICILE_WARD",
+                                "default": "Xã / Phường nguyên quán"
+                            }
+                        },
+                        "normallyAddress": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_NORMAL_ADDRESS",
+                                "default": "Địa chỉ thường trú"
+                            }
+                        },
+                        "temporaryAddress": {
+                            "label": {
+                                "key": "MLA_INFO_BASIC_TEMPORARY_ADDRESS",
+                                "default": "Địa chỉ tạm trú"
+                            }
+                        }
+                    }
+                },
+                "healthCondition": {
+                    "label": {
+                        "key": "MEC_TAB_HEALTH_CONDITION",
+                        "default": "Tình trạng sức khỏe"
+                    },
+                    "title": "MLP_HEALTH_CONDITION_TITLE",
+                    "subTitle": "MLP_HEALTH_CONDITION_SUBTITLE",
+                    "fields": {
+                        "groupBlood": {
+                            "label": "MLP_GROUP_BLOOD",
+                            "placeholder": "MLP_GROUP_BLOOD_PLACEHOLDER"
+                        },
+                        "weight": {
+                            "label": "MLP_WEIGHT",
+                            "placeholder": "MLP_WEIGHT_PLACEHOLDER"
+                        },
+                        "height": {
+                            "label": "MLP_HEIGHT",
+                            "placeholder": "MLP_HEIGHT_PLACEHOLDER"
+                        },
+                        "isDrinkWine": {
+                            "label": "MLP_DRINK_WINE",
+                            "options": {
+                                "yes": "MLP_YES",
+                                "no": "MLP_NO"
+                            }
+                        },
+                        "isSmoke": {
+                            "label": "MLP_SMOKE",
+                            "options": {
+                                "yes": "MLP_YES",
+                                "no": "MLP_NO"
+                            }
+                        },
+                        "eyeSightLeft": {
+                            "label": "MLP_EYE_SIGHT_LEFT",
+                            "placeholder": "MLP_EYE_SIGHT_LEFT_PLACEHOLDER"
+                        },
+                        "eyeSightRight": {
+                            "label": "MLP_EYE_SIGHT_RIGHT",
+                            "placeholder": "MLP_EYE_SIGHT_RIGHT_PLACEHOLDER"
+                        },
+                        "strongHand": {
+                            "label": "MLP_STRONG_HAND",
+                            "options": {
+                                "none": "MLP_NOT_SELECTED",
+                                "left": "MLP_LEFT_HAND",
+                                "right": "MLP_RIGHT_HAND",
+                                "both": "MLP_BOTH_HAND"
+                            }
+                        },
+                        "colorBlindness": {
+                            "label": "MLP_COLOR_BLINDNESS",
+                            "options": {
+                                "none": "MLP_NOT_SELECTED",
+                                "yes": "MLP_YES",
+                                "no": "MLP_NO"
+                            }
+                        },
+                        "sweatyHands": {
+                            "label": "MLP_SWEATY_HANDS",
+                            "options": {
+                                "none": "MLP_NOT_SELECTED",
+                                "low": "MLP_SWEAT_LOW",
+                                "high": "MLP_SWEAT_HIGH"
+                            }
+                        },
+                        "afraidHeight": {
+                            "label": "MLP_AFRAID_HEIGHT",
+                            "options": {
+                                "none": "MLP_NOT_SELECTED",
+                                "yes": "MLP_YES",
+                                "no": "MLP_NO"
+                            }
+                        },
+                        "haveTatoo": {
+                            "label": "MLP_HAVE_TATTOO",
+                            "options": {
+                                "none": "MLP_NOT_SELECTED",
+                                "yes": "MLP_YES",
+                                "no": "MLP_NO"
+                            }
+                        },
+                        "detailTatoo": {
+                            "label": "MLP_TATTOO_DETAIL",
+                            "placeholder": "MLP_TATTOO_DETAIL_PLACEHOLDER"
+                        }
+                    }
+                },
+                "security": {
+                    "label": {
+                        "key": "MEC_TAB_SECURITY",
+                        "default": "Bảo mật"
+                    },
+                    "title": "MLP_SECURITY_TITLE",
+                    "subTitle": "MLP_SECURITY_SUBTITLE",
+                    "fields": {
+                        "enableSecurity": {
+                            "label": "MLP_ENABLE_2FA"
+                        },
+                        "secretKey": {
+                            "label": "MLP_SECRET_KEY",
+                            "placeholder": "MLP_SECRET_KEY_PLACEHOLDER",
+                            "helperText": "MLP_SECRET_KEY_HELPER"
+                        },
+                        "qrCode": {
+                            "label": "MLP_QR_CODE"
+                        },
+                        "togglePassword": {
+                            "labelShow": "MLP_SHOW_PASSWORD",
+                            "labelHide": "MLP_HIDE_PASSWORD"
+                        }
+                    }
+                },
+                "generalNotes": {
+                    "label": {
+                        "key": "MEC_TAB_GENERAL_NOTES",
+                        "default": "Ghi chú chung"
+                    },
+                    "fields": {
+                        "description": {
+                            "label": {
+                                "key": "ACCOUNT_GENERAL_NOTES_DESCRIPTION",
+                                "default": "Ghi chú"
+                            },
+                            "placeholder": {
+                                "key": "ACCOUNT_GENERAL_NOTES_DESCRIPTION_PLACEHOLDER",
+                                "default": "Nhập ghi chú tại đây..."
+                            }
+                        }
+                    }
+                }
+            },
+            "actions": {
+                "save": {
+                    "key": "MEC_SAVE",
+                    "default": "Lưu"
+                },
+                "cancel": {
+                    "key": "MEC_CANCEL",
+                    "default": "Hủy"
+                },
+                "goBack": {
+                    "key": "MEC_GO_BACK",
+                    "default": "Quay lại"
+                }
+            },
+            "dialog": {
+                "minWidth": "700px"
+            }
+        }
+    }
+}

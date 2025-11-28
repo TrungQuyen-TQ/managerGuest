@@ -1,0 +1,131 @@
+{
+    "meta": {
+        "moduleKey": "layout",
+        "title": {
+            "key": "MEC_LAYOUT",
+            "default": "Giao diện chung"
+        }
+    },
+    "accountPopover": {
+        "account": {
+            "key": "MEC_ACCOUNT",
+            "default": "Tài khoản"
+        },
+        "accountInformation": {
+            "key": "MEC_ACCOUNT_INFORMATION",
+            "default": "Thông tin tài khoản"
+        },
+        "myPermission": {
+            "key": "MEC_MY_PERMISSION",
+            "default": "Quyền của tôi"
+        },
+        "logout": {
+            "key": "MEC_LOGOUT",
+            "default": "Đăng xuất"
+        }
+    },
+    "menu": {
+        "overview": {
+            "key": "MEC_OVERVIEW",
+            "default": "Tổng quan"
+        },
+        "order": {
+            "key": "MEC_ORDER",
+            "default": "Đơn hàng"
+        },
+        "vehicle": {
+            "key": "MEC_VEHICLE",
+            "default": "Phương tiện"
+        },
+        "product": {
+            "key": "MEC_PRODUCT",
+            "default": "Sản phẩm"
+        },
+        "promotion": {
+            "key": "MEC_PROMOTION",
+            "default": "Khuyến mãi"
+        },
+        "customer": {
+            "key": "MEC_CUSTOMER",
+            "default": "Khách hàng"
+        },
+        "shop": {
+            "key": "MEC_SHOP",
+            "default": "Cửa hàng"
+        },
+        "categories": {
+            "key": "MEC_CATEGORY",
+            "default": "Danh mục"
+        },
+        "advertisement": {
+            "key": "MEC_ADVERTISEMENT",
+            "default": "Quảng cáo"
+        },
+        "marketing": {
+            "key": "MEC_MARKETING",
+            "default": "Marketing"
+        },
+        "statistics": {
+            "key": "MEC_STATISTICS",
+            "default": "Thống kê"
+        },
+        "news": {
+            "key": "MEC_NEWS",
+            "default": "Tin tức"
+        },
+        "newsSubmenu": {
+            "news": {
+                "key": "MEC_NEWS",
+                "default": "Tin tức"
+            },
+            "newsCategory": {
+                "key": "MEC_NEWS_CATEGORY",
+                "default": "Danh mục tin tức"
+            }
+        },
+        "configuration": {
+            "key": "MEC_CONFIGURATION",
+            "default": "Cấu hình"
+        },
+        "generalConfiguration": {
+            "key": "MEC_GENERAL_CONFIGURATION",
+            "default": "Cấu hình chung"
+        },
+        "system": {
+            "key": "MEC_SYSTEM",
+            "default": "Hệ thống"
+        },
+        "systemSubmenu": {
+            "account": {
+                "key": "MEC_ACCOUNT",
+                "default": "Tài khoản"
+            },
+            "permissions": {
+                "key": "MEC_SYSTEM_PERMISSIONS",
+                "default": "Quyền hệ thống"
+            },
+            "module": {
+                "key": "MEC_SYSTEM_MODULE",
+                "default": "Module hệ thống"
+            },
+            "feature": {
+                "key": "MEC_SYSTEM_FEATURE",
+                "default": "Chức năng hệ thống"
+            },
+            "accessHistory": {
+                "key": "MEC_ACCESS_HISTORY",
+                "default": "Lịch sử truy cập"
+            }
+        }
+    },
+    "topNav": {
+        "hello": {
+            "key": "MEC_HELLO",
+            "default": "Xin chào"
+        },
+        "notification": {
+            "key": "MEC_NOTIFICATION",
+            "default": "Thông báo"
+        }
+    }
+}

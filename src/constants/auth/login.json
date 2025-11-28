@@ -1,0 +1,38 @@
+{
+    "login": {
+        "pageTitle": {
+            "key": "LOGIN_PAGE_TITLE",
+            "default": "Đăng nhập | Macaron"
+        },
+        "usernameLabel": {
+            "key": "LOGIN_USERNAME_LABEL",
+            "default": "Tên đăng nhập"
+        },
+        "passwordLabel": {
+            "key": "LOGIN_PASSWORD_LABEL",
+            "default": "Mật khẩu"
+        },
+        "forgotPassword": {
+            "key": "LOGIN_FORGOT_PASSWORD",
+            "default": "Quên mật khẩu"
+        },
+        "loginButton": {
+            "key": "LOGIN_BUTTON",
+            "default": "Đăng nhập"
+        },
+        "validation": {
+            "usernameRequired": {
+                "key": "LOGIN_VALIDATION_USERNAME_REQUIRED",
+                "default": "Vui lòng cung cấp tên đăng nhập"
+            },
+            "passwordRequired": {
+                "key": "LOGIN_VALIDATION_PASSWORD_REQUIRED",
+                "default": "Vui lòng cung cấp mật khẩu"
+            },
+            "submitError": {
+                "key": "LOGIN_VALIDATION_SUBMIT_ERROR",
+                "default": "Thông tin đăng nhập không chính xác"
+            }
+        }
+    }
+}

@@ -1,0 +1,159 @@
+{
+    "meta": {
+        "moduleKey": "common",
+        "title": {
+            "key": "MEC_COMMON_TEXT",
+            "default": "Chung"
+        }
+    },
+    "components": {
+        "actionColumn": {
+            "menu": {
+                "detail": {
+                    "key": "MEC_DETAIL",
+                    "default": "Chi tiết"
+                },
+                "edit": {
+                    "key": "MEC_EDIT",
+                    "default": "Sửa"
+                },
+                "delete": {
+                    "key": "MEC_DELETE",
+                    "default": "Xóa"
+                },
+                "lock": {
+                    "key": "MEC_LOCK",
+                    "default": "Khóa"
+                }
+            },
+            "tooltip": {
+                "detail": {
+                    "key": "MEC_TOOLTIP_DETAIL",
+                    "default": "Chi tiết"
+                },
+                "edit": {
+                    "key": "MEC_TOOLTIP_EDIT",
+                    "default": "Sửa"
+                },
+                "delete": {
+                    "key": "MEC_TOOLTIP_DELETE",
+                    "default": "Xóa"
+                },
+                "lock": {
+                    "key": "MEC_TOOLTIP_LOCK",
+                    "default": "Khóa"
+                }
+            },
+            "deleteConfirm": {
+                "title": {
+                    "key": "MEC_DELETE_CONFIRM_TITLE",
+                    "default": "Xác nhận xóa"
+                },
+                "description": {
+                    "key": "MEC_DELETE_CONFIRM_DESC",
+                    "default": "Bạn có chắc chắn muốn xóa không?"
+                },
+                "button": {
+                    "cancel": {
+                        "key": "MEC_CANCEL",
+                        "default": "Hủy"
+                    },
+                    "delete": {
+                        "key": "MEC_DELETE",
+                        "default": "Xóa"
+                    }
+                }
+            },
+            "lockConfirm": {
+                "title": {
+                    "key": "MEC_LOCK_CONFIRM_TITLE",
+                    "default": "Xác nhận khóa"
+                },
+                "description": {
+                    "key": "MEC_LOCK_CONFIRM_DESC",
+                    "default": "Bạn có chắc chắn muốn khóa không?"
+                },
+                "button": {
+                    "cancel": {
+                        "key": "MEC_CANCEL",
+                        "default": "Hủy"
+                    },
+                    "confirm": {
+                        "key": "MEC_CONFIRM",
+                        "default": "Xác nhận"
+                    }
+                }
+            }
+        },
+        "authenticationQRCode": {
+            "title": {
+                "key": "MEC_AUTH_QR_TITLE",
+                "default": "Vui lòng quét mã để xác nhận"
+            },
+            "error": {
+                "invalidLength": {
+                    "key": "MEC_AUTH_QR_INVALID_LENGTH",
+                    "default": "Vui lòng nhập đủ 6 chữ số."
+                },
+                "invalidOTP": {
+                    "key": "MEC_AUTH_QR_INVALID_OTP",
+                    "default": "Mã OTP không chính xác."
+                }
+            },
+            "button": {
+                "confirm": {
+                    "key": "MEC_CONFIRM",
+                    "default": "Xác nhận"
+                }
+            }
+        },
+        "confirmAlert": {
+            "titlePrefix": {
+                "key": "MEC_CONFIRM_TITLE_PREFIX",
+                "default": "Xác nhận "
+            },
+            "messagePrefix": {
+                "key": "MEC_CONFIRM_MESSAGE_PREFIX",
+                "default": "Bạn có chắc chắn muốn "
+            },
+            "messageSuffix": {
+                "key": "MEC_CONFIRM_MESSAGE_SUFFIX",
+                "default": " không?"
+            },
+            "button": {
+                "cancel": {
+                    "key": "MEC_CANCEL",
+                    "default": "Hủy"
+                },
+                "confirm": {
+                    "key": "MEC_CONFIRM",
+                    "default": "Đồng ý"
+                }
+            }
+        },
+        "infoRecord": {
+            "createdBy": {
+                "key": "MEC_RECORD_CREATED_BY",
+                "default": "Tạo bởi"
+            },
+            "lastModifiedBy": {
+                "key": "MEC_RECORD_LAST_MODIFIED_BY",
+                "default": "Chỉnh sửa lần cuối"
+            },
+            "at": {
+                "key": "MEC_AT",
+                "default": "lúc"
+            }
+        },
+        "modalDetail": {
+            "title": {
+                "key": "MEC_MODAL_DETAIL_TITLE",
+                "default": "Thông tin chi tiết"
+            },
+            "close": {
+                "key": "MEC_MODAL_DETAIL_CLOSE",
+                "default": "Đóng"
+            }
+        }
+    }
+}
