@@ -1,6 +1,8 @@
 import { ChartBarIcon, CpuChipIcon } from "@heroicons/react/24/solid";
 import {
   Add,
+  Home,
+  Search,
   Settings,
   Assessment,
   Category,
@@ -31,13 +33,17 @@ export const ICON_MAP = {
   AssessmentIcon: Assessment,
   ArticleIcon: Article,
   SettingsIcon: Settings,
+  HomeIcon: Home,
+  SearchIcon: Search,
+  AddIcon: Add,
   SystemIcon: CpuChipIcon,
 };
 
 export const convertMenuFromApi = (menuApi, tr, isChild = false) => {
   return menuApi.map((item) => {
-    // Nếu là item trong submenu thì icon = <Add/>
-    const IconComponent = isChild ? Add : ICON_MAP[item.icon];
+      // Thứ tự chọn icon: nếu khai báo rõ ràng trong menu -> dùng mapped icon
+      // nếu không khai báo nhưng là submenu thì fallback về Add, còn nếu không thì null
+      const IconComponent = ICON_MAP[item.icon] || (isChild ? Add : null);
 
     const menuItem = {
       title: tr(item.title),

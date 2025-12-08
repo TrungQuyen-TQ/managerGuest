@@ -1,0 +1,11 @@
+/* Global styles for the project
+   Add your custom global CSS rules here.
+   This file is imported in `src/pages/_app.js` so styles apply across the app.
+*//* ./src/styles/svar-core-override.css */
+
+
+/* ... */
+.wx-4VuBwK2D.wx-header-wrapper{
+    background-color: #f8f9fa;
+}
+

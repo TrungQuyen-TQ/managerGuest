@@ -17,11 +17,13 @@ import { Provider as ReduxProvider } from "react-redux";
 import { store } from "src/store";
 
 import "primeflex/primeflex.css";
+
 import "primereact/resources/primereact.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primeicons/primeicons.css";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import "src/styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
 
