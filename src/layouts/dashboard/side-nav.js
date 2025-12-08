@@ -26,33 +26,20 @@ import { convertMenuFromApi, generateDynamicMenu } from "./config";
 
 const mockMenu = [
   {
-    link: "/",
-    icon: "BarChartIcon",
-    alias: "overview",
-    title: "MEC_OVERVIEW",
+    link: "/add",
+    icon: "AddIcon",
+    alias: "setting",
+    title: "Add Guest",
     children: null,
   },
   {
     link: "/account",
-    icon: "UserIcon",
+    icon: "BarChartIcon",
     alias: "account",
-    title: "MEC_ACCOUNT",
+    title: "List",
     children: null,
   },
-  {
-    link: null,
-    icon: "SettingsIcon",
-    alias: "configuration",
-    title: "MEC_CONFIGURATION",
-    children: [
-      {
-        link: "/setting",
-        icon: "AddIcon",
-        alias: "setting",
-        title: "MEC_GENERAL_CONFIGURATION",
-      },
-    ],
-  },
+  
 ];
 
 export const SideNav = (props) => {
@@ -126,10 +113,10 @@ export const SideNav = (props) => {
               sx={{
                 pl: 3,
                 "&:hover": {
-                  backgroundColor: "#F1919D",
+                  backgroundColor: "#F7ACBB",
                 },
                 ...(pathname.startsWith(subItem.path) && {
-                  backgroundColor: "#F1919D",
+                  backgroundColor: "#F7ACBB",
                 }),
               }}
             >
@@ -215,7 +202,7 @@ export const SideNav = (props) => {
             </>
           )}
         </Box>
-        <Divider sx={{ borderColor: "#F1919D" }} />
+        <Divider sx={{ borderColor: "#F7ACBB" }} />
         <Box
           component="nav"
           sx={{
@@ -237,7 +224,7 @@ export const SideNav = (props) => {
                             cursor: "pointer",
                             padding: "4px 16px",
                             "&:hover": {
-                              backgroundColor: "#F1919D",
+                              backgroundColor: "#F7ACBB",
                             },
                           }}
                           onClick={() => toggleNestedList(item)}
@@ -321,13 +308,13 @@ export const SideNav = (props) => {
                               cursor: "pointer",
                               padding: "4px 16px",
                               "&:hover": {
-                                backgroundColor: "#F1919D",
+                                backgroundColor: "#F7ACBB",
                               },
                               ...(item.submenu.some(
                                 (subItem) =>
                                   subItem.path === pathname || pathname.startsWith(subItem.path)
                               ) && {
-                                backgroundColor: "#F1919D",
+                                backgroundColor: "#F7ACBB",
                               }),
                             }}
                           >
@@ -368,10 +355,10 @@ export const SideNav = (props) => {
                             href={item.path || "#"}
                             sx={{
                               "&:hover": {
-                                backgroundColor: "#F1919D",
+                                backgroundColor: "#F7ACBB",
                               },
                               ...(item.path === pathname && {
-                                backgroundColor: "#F1919D",
+                                backgroundColor: "#F7ACBB",
                               }),
                               fontSize: "14px",
                             }}
@@ -404,10 +391,10 @@ export const SideNav = (props) => {
                           href={item.path || "#"}
                           sx={{
                             "&:hover": {
-                              backgroundColor: "#F1919D",
+                              backgroundColor: "#F7ACBB",
                             },
                             ...(item.path === pathname && {
-                              backgroundColor: "#F1919D",
+                              backgroundColor: "#F7ACBB",
                             }),
                             fontSize: "14px",
                           }}
@@ -441,7 +428,7 @@ export const SideNav = (props) => {
             })}
           </List>
         </Box>
-        <Divider sx={{ borderColor: "#F1919D" }} />
+        <Divider sx={{ borderColor: "#F7ACBB" }} />
         <Typography
           component="span"
           sx={{
