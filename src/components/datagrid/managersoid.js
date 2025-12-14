@@ -79,7 +79,7 @@ const generateMockData = (count = 100) => {
     // 1. Tạo ngày tháng cơ sở
     const startDate = faker.date.recent({ days: 180 });
     const endDate = faker.date.soon({ days: 365, refDate: startDate });
-    
+
     // 2. Tạo logic ngày tháng cho nhóm Kỳ Hạn (Nhà & Utility)
     const houseDueDate = faker.date.soon({ days: 30, refDate: startDate });
     const utilityDueDate = faker.date.soon({ days: 45, refDate: startDate });
@@ -92,7 +92,7 @@ const generateMockData = (count = 100) => {
       id: i,
       // Địa chỉ nhà
       diaChi: `Nhà ${i} - ${faker.location.streetAddress()}`,
-      
+
       // Thời hạn hợp đồng (dạng chuỗi ngày tháng)
       thoiHanHD: `${startDate.toLocaleDateString("vi-VN")} - ${endDate.toLocaleDateString("vi-VN")}`,
 
@@ -108,7 +108,7 @@ const generateMockData = (count = 100) => {
       ky: faker.helpers.arrayElement(["Hàng tháng", "Quý", "Năm"]),
       giaThue: faker.number.int({ min: 1000, max: 5000, step: 100 }),
       khachHang: `${faker.person.lastName()} ${faker.person.firstName()}`,
-      
+
       // Tài khoản ngân hàng chi tiết
       taiKhoan: `${faker.helpers.arrayElement(BANK_NAMES)}: ${faker.finance.accountNumber(10)}`,
     });
@@ -150,7 +150,7 @@ const StatCard = ({ title, value, icon, color }) => (
           {value}
         </Typography>
       </Box>
-      
+
     </Box>
   </Card>
 );
@@ -162,79 +162,79 @@ const PropertyDashboard = () => {
   const [selectedRow, setSelectedRow] = useState(null);
   const handleFieldChange = (field, value) => {
     setEditValues(prev => ({ ...prev, [field]: value }));
-};
+  };
 
-const handleCreateNew = () => {
+  const handleCreateNew = () => {
     setSelectedRow(null); // Đánh dấu là tạo mới
     setEditValues({
-        diaChi: "",
-        khachHang: "",
-        giaThue: 0,
-        trangThai: "Draft",
-        taiKhoan: "",
-        thoiHanHD: "",
-        kyDenHanNha: "",
-        kyDenHanUtility: 0,
-        phieuThuNha: 0,
-        phieuThuUtility: 0,
-        ky: "Hàng tháng"
+      diaChi: "",
+      khachHang: "",
+      giaThue: 0,
+      trangThai: "Draft",
+      taiKhoan: "",
+      thoiHanHD: "",
+      kyDenHanNha: "",
+      kyDenHanUtility: 0,
+      phieuThuNha: 0,
+      phieuThuUtility: 0,
+      ky: "Hàng tháng"
     });
     setOpen(true);
-};
+  };
 
-const handleDelete = () => {
+  const handleDelete = () => {
     if (!selectedRow) return;
 
     if (window.confirm(`Bạn có chắc chắn muốn xóa bản ghi tại: ${selectedRow.diaChi}?`)) {
-        // 1. Loại bỏ khỏi mảng dữ liệu gốc
-        const updatedAllData = allData.filter(item => item.id !== selectedRow.id);
-        
-        // 2. Loại bỏ khỏi mảng đang lọc hiển thị
-        const updatedFilteredData = filteredData.filter(item => item.id !== selectedRow.id);
+      // 1. Loại bỏ khỏi mảng dữ liệu gốc
+      const updatedAllData = allData.filter(item => item.id !== selectedRow.id);
 
-        setAllData(updatedAllData);
-        setFilteredData(updatedFilteredData);
-        
-        // 3. Đóng Dialog
-        setOpen(false);
-        console.log("Đã xóa bản ghi ID:", selectedRow.id);
+      // 2. Loại bỏ khỏi mảng đang lọc hiển thị
+      const updatedFilteredData = filteredData.filter(item => item.id !== selectedRow.id);
+
+      setAllData(updatedAllData);
+      setFilteredData(updatedFilteredData);
+
+      // 3. Đóng Dialog
+      setOpen(false);
+      console.log("Đã xóa bản ghi ID:", selectedRow.id);
     }
-};
+  };
 
 
-const handleSave = () => {
+  const handleSave = () => {
     let updatedAllData;
-    
+
     if (!selectedRow) {
-        // --- LOGIC TẠO MỚI ---
-        const newRecord = { 
-            ...editValues, 
-            id: allData.length > 0 ? Math.max(...allData.map(o => o.id)) + 1 : 1 
-        };
-        updatedAllData = [newRecord, ...allData];
+      // --- LOGIC TẠO MỚI ---
+      const newRecord = {
+        ...editValues,
+        id: allData.length > 0 ? Math.max(...allData.map(o => o.id)) + 1 : 1
+      };
+      updatedAllData = [newRecord, ...allData];
     } else {
-        // --- LOGIC SỬA (CŨ) ---
-        updatedAllData = allData.map((item) => {
-            if (item.id === selectedRow.id) {
-                return { ...item, ...editValues };
-            }
-            return item;
-        });
+      // --- LOGIC SỬA (CŨ) ---
+      updatedAllData = allData.map((item) => {
+        if (item.id === selectedRow.id) {
+          return { ...item, ...editValues };
+        }
+        return item;
+      });
     }
 
     setAllData(updatedAllData);
-    
+
     // Cập nhật lại filteredData để Grid hiển thị ngay lập tức
     if (!selectedRow) {
-        setFilteredData([ { ...editValues, id: updatedAllData[0].id }, ...filteredData ]);
+      setFilteredData([{ ...editValues, id: updatedAllData[0].id }, ...filteredData]);
     } else {
-        setFilteredData(filteredData.map(item => 
-            item.id === selectedRow.id ? { ...item, ...editValues } : item
-        ));
+      setFilteredData(filteredData.map(item =>
+        item.id === selectedRow.id ? { ...item, ...editValues } : item
+      ));
     }
 
     setOpen(false);
-};
+  };
   const PhieuThuActionCell = ({ row }) => (
     <div
       style={{
@@ -309,10 +309,10 @@ const handleSave = () => {
       console.log("Filtering by location:", filters);
       console.log("Before filter, data count:", result);
       result = result.filter((item) => {
-      const itemLocation = item.diaChi.toLowerCase();
-      const filterLocation = filters.location.toLowerCase();
-      return itemLocation.includes(filterLocation);
-    });
+        const itemLocation = item.diaChi.toLowerCase();
+        const filterLocation = filters.location.toLowerCase();
+        return itemLocation.includes(filterLocation);
+      });
       console.log("After filter, data count:", result);
     }
     // Lọc theo Property Type
@@ -399,7 +399,7 @@ const handleSave = () => {
         id: "phieuThuNha",
         header: [{ text: "Phiếu thu", colspan: 2 }, "Nhà"],
         width: 150,
-        
+
         sort: false,
         resize: true,
         sort: true,
@@ -452,7 +452,8 @@ const handleSave = () => {
         resize: true,
         sort: true,
       },
-      {id: "actions",
+      {
+        id: "actions",
         header: ["Hành động"], // ⭐️ SỬA ĐỔI ⭐️
         width: 120,
         cell: PhieuThuActionCell,
@@ -504,13 +505,13 @@ const handleSave = () => {
 
               {/* 1. Location */}
               <MuiGrid item xs={6} sm={4} md={3}>
-                  <TextField
-                    size="small"
-                    label="Location"
-                    fullWidth
-                    value={filters.location}
-                    onChange={(e) => handleFilterChange("location", e.target.value)}
-                  />
+                <TextField
+                  size="small"
+                  label="Location"
+                  fullWidth
+                  value={filters.location}
+                  onChange={(e) => handleFilterChange("location", e.target.value)}
+                />
               </MuiGrid>
 
               {/* 2. Property Type */}
@@ -668,7 +669,7 @@ const handleSave = () => {
           variant="contained"
           startIcon={<AddIcon />} // Hoặc AddIcon nếu bạn import
           sx={{ px: 3 }}
-          onClick={ handleCreateNew}
+          onClick={handleCreateNew}
         >
           Tạo Phiếu Mới
         </Button>
@@ -699,159 +700,159 @@ const handleSave = () => {
       <Box sx={{ display: "flex", justifyContent: "center" }} >
         <Pager total={initialData.length} pageSize={PAGE_SIZE} onChange={handlePageChange} />
       </Box>
-<Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
-    {/* Tiêu đề thay đổi linh hoạt theo chế độ Add/Edit */}
-    <DialogTitle sx={{ bgcolor: "#1a237e", color: "white", fontWeight: "bold" }}>
-        {selectedRow ? `Chỉnh sửa: ${selectedRow.diaChi}` : "Tạo Phiếu Thu Bất Động Sản Mới"}
-    </DialogTitle>
+      <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+        {/* Tiêu đề thay đổi linh hoạt theo chế độ Add/Edit */}
+        <DialogTitle sx={{ bgcolor: "#1a237e", color: "white", fontWeight: "bold" }}>
+          {selectedRow ? `Chỉnh sửa: ${selectedRow.diaChi}` : "Tạo Phiếu Thu Bất Động Sản Mới"}
+        </DialogTitle>
 
-    <DialogContent dividers>
-        {/* Chúng ta kiểm tra editValues để đảm bảo form luôn có dữ liệu để bind */}
-        {editValues && (
+        <DialogContent dividers>
+          {/* Chúng ta kiểm tra editValues để đảm bảo form luôn có dữ liệu để bind */}
+          {editValues && (
             <MuiGrid container spacing={2} sx={{ mt: 1 }}>
-                
-                {/* --- NHÓM 1: THÔNG TIN HỢP ĐỒNG --- */}
-                <MuiGrid item xs={12}>
-                    <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold' }}>Thông tin hợp đồng</Typography>
-                </MuiGrid>
-                <MuiGrid item xs={12}>
-                    <TextField
-                        label="Địa chỉ nhà"
-                        fullWidth
-                        value={editValues.diaChi || ""}
-                        onChange={(e) => handleFieldChange("diaChi", e.target.value)}
-                    />
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <TextField
-                        label="Thời hạn hợp đồng"
-                        fullWidth
-                        value={editValues.thoiHanHD || ""}
-                        onChange={(e) => handleFieldChange("thoiHanHD", e.target.value)}
-                    />
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <TextField
-                        label="Giá thuê hợp đồng ($)"
-                        fullWidth
-                        type="number"
-                        value={editValues.giaThue || ""}
-                        onChange={(e) => handleFieldChange("giaThue", e.target.value)}
-                    />
-                </MuiGrid>
 
-                {/* --- NHÓM 2: KỲ ĐẾN HẠN (GỒM 2 TRƯỜNG NHƯ GRID) --- */}
-                <MuiGrid item xs={12}>
-                    <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold', mt: 1 }}>Kỳ đến hạn thu tiền</Typography>
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <TextField
-                        label="Kỳ hạn Nhà"
-                        fullWidth
-                        value={editValues.kyDenHanNha || ""}
-                        onChange={(e) => handleFieldChange("kyDenHanNha", e.target.value)}
-                    />
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <TextField
-                        label="Kỳ hạn Utility"
-                        fullWidth
-                        type="number"
-                        value={editValues.kyDenHanUtility || ""}
-                        onChange={(e) => handleFieldChange("kyDenHanUtility", e.target.value)}
-                    />
-                </MuiGrid>
+              {/* --- NHÓM 1: THÔNG TIN HỢP ĐỒNG --- */}
+              <MuiGrid item xs={12}>
+                <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold' }}>Thông tin hợp đồng</Typography>
+              </MuiGrid>
+              <MuiGrid item xs={12}>
+                <TextField
+                  label="Địa chỉ nhà"
+                  fullWidth
+                  value={editValues.diaChi || ""}
+                  onChange={(e) => handleFieldChange("diaChi", e.target.value)}
+                />
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <TextField
+                  label="Thời hạn hợp đồng"
+                  fullWidth
+                  value={editValues.thoiHanHD || ""}
+                  onChange={(e) => handleFieldChange("thoiHanHD", e.target.value)}
+                />
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <TextField
+                  label="Giá thuê hợp đồng ($)"
+                  fullWidth
+                  type="number"
+                  value={editValues.giaThue || ""}
+                  onChange={(e) => handleFieldChange("giaThue", e.target.value)}
+                />
+              </MuiGrid>
 
-                {/* --- NHÓM 3: THÔNG TIN PHIẾU THU (GỒM 2 TRƯỜNG NHƯ GRID) --- */}
-                <MuiGrid item xs={12}>
-                    <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold', mt: 1 }}>Thông tin thực thu</Typography>
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <TextField
-                        label="Thực thu Nhà"
-                        fullWidth
-                        type="number"
-                        value={editValues.phieuThuNha || ""} 
-                        onChange={(e) => handleFieldChange("phieuThuNha", e.target.value)}
-                    />
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <TextField
-                        label="Thực thu Utility"
-                        fullWidth
-                        type="number"
-                        value={editValues.phieuThuUtility || ""}
-                        onChange={(e) => handleFieldChange("phieuThuUtility", e.target.value)}
-                    />
-                </MuiGrid>
+              {/* --- NHÓM 2: KỲ ĐẾN HẠN (GỒM 2 TRƯỜNG NHƯ GRID) --- */}
+              <MuiGrid item xs={12}>
+                <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold', mt: 1 }}>Kỳ đến hạn thu tiền</Typography>
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <TextField
+                  label="Kỳ hạn Nhà"
+                  fullWidth
+                  value={editValues.kyDenHanNha || ""}
+                  onChange={(e) => handleFieldChange("kyDenHanNha", e.target.value)}
+                />
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <TextField
+                  label="Kỳ hạn Utility"
+                  fullWidth
+                  type="number"
+                  value={editValues.kyDenHanUtility || ""}
+                  onChange={(e) => handleFieldChange("kyDenHanUtility", e.target.value)}
+                />
+              </MuiGrid>
 
-                {/* --- NHÓM 4: KHÁCH HÀNG & TRẠNG THÁI --- */}
-                <MuiGrid item xs={12}>
-                    <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold', mt: 1 }}>Khách hàng & Thanh toán</Typography>
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <TextField
-                        label="Tên khách hàng"
-                        fullWidth
-                        value={editValues.khachHang || ""}
-                        onChange={(e) => handleFieldChange("khachHang", e.target.value)}
-                    />
-                </MuiGrid>
-                <MuiGrid item xs={6}>
-                    <FormControl fullWidth>
-                        <InputLabel>Trạng thái</InputLabel>
-                        <Select
-                            value={editValues.trangThai || "Draft"}
-                            label="Trạng thái"
-                            onChange={(e) => handleFieldChange("trangThai", e.target.value)}
-                        >
-                            <MenuItem value="Draft">Draft</MenuItem>
-                            <MenuItem value="Submit">Submit</MenuItem>
-                            <MenuItem value="Paid">Paid</MenuItem>
-                        </Select>
-                    </FormControl>
-                </MuiGrid>
-                <MuiGrid item xs={12}>
-                    <TextField
-                        label="Tài khoản nhận tiền"
-                        fullWidth
-                        value={editValues.taiKhoan || ""}
-                        onChange={(e) => handleFieldChange("taiKhoan", e.target.value)}
-                        helperText="Ví dụ: Vietcombank - 123456xxx"
-                    />
-                </MuiGrid>
+              {/* --- NHÓM 3: THÔNG TIN PHIẾU THU (GỒM 2 TRƯỜNG NHƯ GRID) --- */}
+              <MuiGrid item xs={12}>
+                <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold', mt: 1 }}>Thông tin thực thu</Typography>
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <TextField
+                  label="Thực thu Nhà"
+                  fullWidth
+                  type="number"
+                  value={editValues.phieuThuNha || ""}
+                  onChange={(e) => handleFieldChange("phieuThuNha", e.target.value)}
+                />
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <TextField
+                  label="Thực thu Utility"
+                  fullWidth
+                  type="number"
+                  value={editValues.phieuThuUtility || ""}
+                  onChange={(e) => handleFieldChange("phieuThuUtility", e.target.value)}
+                />
+              </MuiGrid>
+
+              {/* --- NHÓM 4: KHÁCH HÀNG & TRẠNG THÁI --- */}
+              <MuiGrid item xs={12}>
+                <Typography variant="subtitle2" sx={{ color: "#1a237e", fontWeight: 'bold', mt: 1 }}>Khách hàng & Thanh toán</Typography>
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <TextField
+                  label="Tên khách hàng"
+                  fullWidth
+                  value={editValues.khachHang || ""}
+                  onChange={(e) => handleFieldChange("khachHang", e.target.value)}
+                />
+              </MuiGrid>
+              <MuiGrid item xs={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Trạng thái</InputLabel>
+                  <Select
+                    value={editValues.trangThai || "Draft"}
+                    label="Trạng thái"
+                    onChange={(e) => handleFieldChange("trangThai", e.target.value)}
+                  >
+                    <MenuItem value="Draft">Draft</MenuItem>
+                    <MenuItem value="Submit">Submit</MenuItem>
+                    <MenuItem value="Paid">Paid</MenuItem>
+                  </Select>
+                </FormControl>
+              </MuiGrid>
+              <MuiGrid item xs={12}>
+                <TextField
+                  label="Tài khoản nhận tiền"
+                  fullWidth
+                  value={editValues.taiKhoan || ""}
+                  onChange={(e) => handleFieldChange("taiKhoan", e.target.value)}
+                  helperText="Ví dụ: Vietcombank - 123456xxx"
+                />
+              </MuiGrid>
             </MuiGrid>
-        )}
-    </DialogContent>
+          )}
+        </DialogContent>
 
-<DialogActions sx={{ p: 2, justifyContent: 'space-between' }}>
-        {/* Cụm nút bên trái: Xóa (Chỉ hiện khi Edit) */}
-        <Box>
+        <DialogActions sx={{ p: 2, justifyContent: 'space-between' }}>
+          {/* Cụm nút bên trái: Xóa (Chỉ hiện khi Edit) */}
+          <Box>
             {selectedRow && (
-                <Button 
-                    variant="outlined" 
-                    color="error" 
-                    onClick={handleDelete} // ⭐️ Kết nối hàm xóa
-                    sx={{ fontWeight: 'bold' }}
-                >
-                    Xóa bản ghi
-                </Button>
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={handleDelete} // ⭐️ Kết nối hàm xóa
+                sx={{ fontWeight: 'bold' }}
+              >
+                Xóa bản ghi
+              </Button>
             )}
-        </Box>
+          </Box>
 
-        {/* Cụm nút bên phải: Hủy & Lưu */}
-        <Box sx={{ display: 'flex', gap: 1 }}>
+          {/* Cụm nút bên phải: Hủy & Lưu */}
+          <Box sx={{ display: 'flex', gap: 1 }}>
             <Button onClick={handleClose} color="inherit">Hủy</Button>
-            <Button 
-                variant="contained" 
-                onClick={handleSave} 
-                sx={{ bgcolor: "#1a237e", px: 4 }}
+            <Button
+              variant="contained"
+              onClick={handleSave}
+              sx={{ bgcolor: "#1a237e", px: 4 }}
             >
-                {selectedRow ? "Cập nhật" : "Lưu mới"}
+              {selectedRow ? "Cập nhật" : "Lưu mới"}
             </Button>
-        </Box>
-    </DialogActions>
-</Dialog>
+          </Box>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

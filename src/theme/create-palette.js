@@ -12,6 +12,7 @@ export function createPalette() {
       hover: alpha(neutral[900], 0.04),
       selected: alpha(neutral[900], 0.12)
     },
+
     background: {
       default: common.white,
       paper: common.white
@@ -21,7 +22,11 @@ export function createPalette() {
     info,
     mode: 'light',
     neutral,
-    primary: indigo,
+    primary: {
+      main: '#0a7444', // Màu xanh đậm bạn muốn
+      light: '#3ea66e', // Light shade (Tùy chọn: Tính toán để sáng hơn)
+      dark: '#004a1f',  // Dark shade (Tùy chọn: Tính toán để tối hơn)
+    },
     success,
     text: {
       primary: neutral[900],

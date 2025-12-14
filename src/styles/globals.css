@@ -9,3 +9,13 @@
     background-color: #f8f9fa;
 }
 
+.col-id-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wx-aEtQH7VY .wx-column-id-id {
+  justify-content: center;
+  text-align: center;
+}

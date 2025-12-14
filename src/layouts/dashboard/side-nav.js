@@ -33,35 +33,13 @@ const mockMenu = [
     children: null,
   },
   {
-    link: "/account",
+    link: "/listguest",
     icon: "BarChartIcon",
     alias: "account",
     title: "List",
     children: null,
   }, 
-   {
-    link: "/dashboard",
-    icon: "UserIcon",
-    alias: "account",
-    title: "MEC_ACCOUNT",
-    children: [
-      {
-                link: "/house-villa",
-                // 🏠 Icon mới cho trang quản lý/danh sách
-                icon: "HomeIcon", // Hoặc "ListIcon"
-                alias: "house-villa",
-                title: "Thêm Biệt thự/Nhà", // Đã sửa tên ở câu hỏi trước
-            },
-            {
-                // ✍️ Giả định link này là trang Thêm mới/Chỉnh sửa
-                link: "/datagrid", // Đã sửa link từ "/house-villa" thành "/addhome-villa" (Giả định)
-                // ➕ Icon mới cho chức năng thêm/tạo mới
-                icon: "SearchIcon", // Hoặc "AddIcon" nếu bạn muốn giữ
-                alias: "setting",
-                title: "Quản lí bất động sản", // Đã sửa tên ở câu hỏi trước
-            },
-    ],
-  },
+
   
 ];
 
