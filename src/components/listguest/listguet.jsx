@@ -277,7 +277,7 @@ export default function Listguest() {
           {/* 3. Cột Khoảng Trắng (Spacer) - 4/12 */}
           <Grid2 xs={8} sm={8} />
           {/* 4. Cột cho Nút Thao Tác - 3/12 */}
-          <Grid2 item size={{ xs: 8, md: 8 }} sx={{ textAlign: "right" }}>
+          <Grid2 item size={{ xs: 8, md: 11 }} sx={{ textAlign: "right" }}>
             <Willow>
               <Grid
                 columns={columns}

@@ -47,18 +47,24 @@ const FormRow = ({ label, children }) => {
 };
 
 export default function AddForm() {
-  const [rentals, setRentals] = useState(['']);
+  const [rentals, setRentals] = useState([""]);
   const handleAddInput = () => {
-    setRentals([...rentals, '']); // Copy mảng cũ và thêm 1 chuỗi trống
+    setRentals([...rentals, ""]); // Copy mảng cũ và thêm 1 chuỗi trống
   };
 
-  const handleInputChange = (index, event) => {
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleRentalChange = (index, e) => {
     const newRentals = [...rentals];
-    newRentals[index] = event.target.value;
+    newRentals[index] = e.target.value;
     setRentals(newRentals);
-    setFormData((prev) => ({ ...prev, [name]: isCheckbox ? target.checked : value }));
   };
-
   const [formData, setFormData] = useState({
     name: "",
     Email: "villas",
@@ -68,6 +74,7 @@ export default function AddForm() {
 
   const handleSubmit = () => {
     console.log("Dữ liệu Form đã gửi:", formData);
+    console.log("Dịch vụ chạy:", rentals);
   };
   return (
     <>
@@ -78,7 +85,7 @@ export default function AddForm() {
             size="small"
             name="name"
             value={formData.name}
-            onChange={handleInputChange}
+            onChange={handleFormChange}
             InputProps={centerInputProps} // ÁP DỤNG
           />
         </FormRow>
@@ -89,7 +96,7 @@ export default function AddForm() {
             size="small"
             name="email"
             value={formData.email}
-            onChange={handleInputChange}
+            onChange={handleFormChange}
             InputProps={centerInputProps} // ÁP DỤNG
           />
         </FormRow>
@@ -101,11 +108,10 @@ export default function AddForm() {
             name="phone"
             type="number"
             value={formData.phone}
-            onChange={handleInputChange}
+            onChange={handleFormChange}
             InputProps={centerInputProps} // ÁP DỤNG
           />
         </FormRow>
-
 
         <Grid2 container spacing={2} sx={{ mb: 2, alignItems: "center" }}>
           {/* 1. Cột cho Label (Nhãn) - 3/12 */}
@@ -116,16 +122,18 @@ export default function AddForm() {
           </Grid2>
 
           {/* 2. Cột cho Input Field (Trường nhập liệu) - 5/12 */}
-                        <Grid2 item size={{ xs: 4, md: 4 }} sx={{ fontWeight: 500, color: "#555" }}>
+          <Grid2 item size={{ xs: 4, md: 4 }} sx={{ fontWeight: 500, color: "#555" }}>
             {rentals.map((rentalValue, index) => (
-
-              <Box sx={{ display: "flex", gap: "10px", justifyContent: "center", margin: "10px 0" }} key={index}>
+              <Box
+                sx={{ display: "flex", gap: "10px", justifyContent: "center", margin: "10px 0" }}
+                key={index}
+              >
                 <TextField
                   fullWidth
                   size="small"
                   name="rental"
-                  value={formData.rental}
-                  onChange={handleInputChange}
+                  value={rentalValue}
+                  onChange={(e) => handleRentalChange(index, e)}
                   sx={{ height: "100%" }}
                   InputProps={centerInputProps} // ÁP DỤNG
                 />
@@ -133,16 +141,11 @@ export default function AddForm() {
                   <AddIcon />
                 </Button>
               </Box>
-              
-           
             ))}
-             </Grid2>
+          </Grid2>
 
-          {/* 3. Cột Khoảng Trắng (Spacer) - 4/12 */}
           <Grid2 xs={0} sm={4} />
         </Grid2>
-
-
 
         <Grid2 container spacing={2} sx={{ mt: 3, justifyContent: "center" }}>
           <Grid2 xs={12} sm={3}></Grid2>

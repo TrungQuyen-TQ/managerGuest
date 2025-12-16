@@ -41,6 +41,7 @@
     "@reduxjs/toolkit": "^2.2.7",
     "@svar-ui/lib-react": "^1.1.1",
     "@svar-ui/react-core": "^2.3.1",
+    "@svar-ui/react-filemanager": "^2.3.3",
     "@svar-ui/react-grid": "^2.3.2",
     "@tinymce/tinymce-react": "^5.1.1",
     "@uppy/core": "^4.2.3",
