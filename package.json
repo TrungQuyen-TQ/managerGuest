@@ -60,6 +60,7 @@
     "dayjs": "^1.11.10",
     "debounce": "^2.1.1",
     "formik": "2.2.9",
+    "fs-extra": "^11.3.3",
     "html-react-parser": "^5.1.10",
     "html2canvas": "^1.4.1",
     "i18next": "^23.11.2",

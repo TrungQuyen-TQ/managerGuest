@@ -39,6 +39,13 @@ const mockMenu = [
     title: "List",
     children: null,
   }, 
+  {
+    link: "/filemanager",
+    icon: "Fileicon",
+    alias: "account",
+    title: "File",
+    children: null,
+  }
 
   
 ];
